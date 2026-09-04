@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-dotnet@v4 
         with: 
           dotnet-version: 10.0.x 
+      # Recuerda reemplazar <Proyecto> con el nombre real de tu archivo .slnx
       - run: dotnet restore ./<Proyecto>.slnx 
       - run: dotnet build ./<Proyecto>.slnx --configuration Release --no-restore 
       - run: dotnet test ./<Proyecto>.slnx --configuration Release --no-build 
@@ -25,9 +26,9 @@ jobs:
     steps: 
       - uses: actions/checkout@v4 
       - uses: actions/setup-node@v4 
-with: 
-ode-version: 24 
-- run: corepack enable 
-- run: yarn install --frozen-lockfile 
-- run: yarn build 
-- run: yarn test --watch=false --browsers=ChromeHeadless 
+        with: 
+          node-version: 24 
+      - run: corepack enable 
+      - run: yarn install --frozen-lockfile 
+      - run: yarn build 
+      - run: yarn test --watch=false --browsers=ChromeHeadless
