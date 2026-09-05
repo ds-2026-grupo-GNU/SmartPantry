@@ -1,42 +1,36 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-.vs/
-node_modules/
-bin/
-obj/
-
+See http://help.github.com/ignore-files/ for more about ignoring files.
 /.suite
-# compiled output
+compiled output
 /dist
 /tmp
 /out-tsc
-# Only exists if Bazel was run
+Only exists if Bazel was run
 /bazel-out
 
-# dependencies
+dependencies
 /node_modules
 
-# profiling files
+profiling files
 chrome-profiler-events*.json
 
-# IDEs and editors
+IDEs and editors
 /.idea
 .project
 .classpath
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
+.sublime-workspace
 
-# IDE - VSCode
-.vscode/*
+IDE - VSCode
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
 
-# misc
+misc
 /.angular/cache
 /.sass-cache
 /connect.lock
@@ -47,6 +41,6 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
+System Files
 .DS_Store
 Thumbs.db
