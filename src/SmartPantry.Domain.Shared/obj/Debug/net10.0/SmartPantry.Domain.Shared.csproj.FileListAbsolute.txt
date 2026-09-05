@@ -1,0 +1,14 @@
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\bin\Debug\net10.0\SmartPantry.Domain.Shared.deps.json
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\bin\Debug\net10.0\SmartPantry.Domain.Shared.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\bin\Debug\net10.0\SmartPantry.Domain.Shared.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.csproj.AssemblyReference.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.EmbeddedFilesManifest.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.AssemblyInfoInputs.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.AssemblyInfo.cs
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.csproj.CoreCompileInputs.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.sourcelink.json
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\refint\SmartPantry.Domain.Shared.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\SmartPantry.Domain.Shared.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain.Shared\obj\Debug\net10.0\ref\SmartPantry.Domain.Shared.dll
