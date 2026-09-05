@@ -40,16 +40,22 @@ Este paso es obligatorio para crear las tablas base de infraestructura provistas
   dotnet run --project .\src\SmartPantry.HttpApi.Host
 4. Iniciar el Frontend (Angular)
 La interfaz de Angular consume el HttpApi.Host mediante HTTP y no accede directamente a la base de datos[cite: 1]. Abre una nueva terminal, navega a la carpeta de Angular e inicia la aplicación:
+```
   cd angular
   yarn install
   yarn start
+```
 ##Verificación Continua (CI)
 El grupo ejecuta los siguientes comandos de forma local para comprobar que el código compila y pasa las pruebas de forma exitosa antes de integrarlo mediante un Pull Request[cite: 1]:
 
 Comandos de verificación Backend (.NET):
+```
   dotnet build ./SmartPantry.slnx --configuration Debug --no-restore
   dotnet test ./SmartPantry.slnx --configuration Debug --no-build
+```
 Comandos de verificación Frontend (Angular):
+```
   cd angular
   yarn build
   yarn test --watch=false --browsers=ChromeHeadless
+```
