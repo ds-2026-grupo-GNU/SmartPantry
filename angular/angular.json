@@ -193,11 +193,7 @@
           "options": {
             "tsConfig": "tsconfig.spec.json",
             "buildTarget": "SmartPantry:build",
-            "runner": "vitest",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "runner": "vitest"
           }
         },
         "lint": {
