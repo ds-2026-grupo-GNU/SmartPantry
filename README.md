@@ -28,6 +28,7 @@ Reemplaza el valor de `Default` por tu cadena de conexión local usando autentic
     "Default": "Server=(localdb)\\MSSQLLocalDB; Database=SmartPantry; Trusted_Connection=True"
   }
 }
+```
 ##Puesta en Marcha
 Para levantar el proyecto desde cero, ejecuta los siguientes comandos desde la raíz del repositorio:
 1. Restaurar dependencias globales
