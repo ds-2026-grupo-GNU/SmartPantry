@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Shouldly;
+using SmartPantry.Authors;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Shouldly;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Modularity;
 using Volo.Abp.Validation;
@@ -35,10 +36,14 @@ public abstract class BookAppService_Tests<TStartupModule> : SmartPantryApplicat
     [Fact]
     public async Task Should_Create_A_Valid_Book()
     {
-        //Act
+        var authorRepository = GetRequiredService<Volo.Abp.Domain.Repositories.IRepository<Author, Guid>>();
+        var authors = await authorRepository.GetListAsync();
+        var author = authors.First();
+
         var result = await _bookAppService.CreateAsync(
             new CreateUpdateBookDto
             {
+                AuthorId = author.Id, // <-- AQUÍ ESTÁ LA CLAVE FORÁNEA FALTANTE
                 Name = "New test book 42",
                 Price = 10,
                 PublishDate = DateTime.Now,
@@ -46,11 +51,11 @@ public abstract class BookAppService_Tests<TStartupModule> : SmartPantryApplicat
             }
         );
 
-        //Assert
         result.Id.ShouldNotBe(Guid.Empty);
         result.Name.ShouldBe("New test book 42");
+
     }
-    
+
     [Fact]
     public async Task Should_Not_Create_A_Book_Without_Name()
     {
