@@ -1,0 +1,16 @@
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\bin\Debug\net10.0\SmartPantry.Domain.deps.json
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\bin\Debug\net10.0\SmartPantry.Domain.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\bin\Debug\net10.0\SmartPantry.Domain.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\bin\Debug\net10.0\SmartPantry.Domain.Shared.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\bin\Debug\net10.0\SmartPantry.Domain.Shared.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.csproj.AssemblyReference.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.AssemblyInfoInputs.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.AssemblyInfo.cs
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.csproj.CoreCompileInputs.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.sourcelink.json
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPan.2E5D3546.Up2Date
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\refint\SmartPantry.Domain.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\SmartPantry.Domain.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Domain\obj\Debug\net10.0\ref\SmartPantry.Domain.dll

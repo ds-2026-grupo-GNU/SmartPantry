@@ -1,0 +1,16 @@
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\bin\Debug\net10.0\SmartPantry.Application.Contracts.deps.json
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\bin\Debug\net10.0\SmartPantry.Application.Contracts.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\bin\Debug\net10.0\SmartPantry.Application.Contracts.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\bin\Debug\net10.0\SmartPantry.Domain.Shared.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\bin\Debug\net10.0\SmartPantry.Domain.Shared.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.csproj.AssemblyReference.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.AssemblyInfoInputs.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.AssemblyInfo.cs
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.sourcelink.json
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPan.ABA036CA.Up2Date
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\refint\SmartPantry.Application.Contracts.dll
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\SmartPantry.Application.Contracts.pdb
+C:\Users\matia\OneDrive\Documentos\GitHub\SmartPantry\src\SmartPantry.Application.Contracts\obj\Debug\net10.0\ref\SmartPantry.Application.Contracts.dll
