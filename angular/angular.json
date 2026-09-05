@@ -30,7 +30,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "allowedCommonJsDependencies": ["chart.js", "js-sha256"],
+            "allowedCommonJsDependencies": [ "chart.js", "js-sha256" ],
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -193,13 +193,17 @@
           "options": {
             "tsConfig": "tsconfig.spec.json",
             "buildTarget": "SmartPantry:build",
-            "runner": "vitest"
+            "runner": "vitest",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [ "src/**/*.ts", "src/**/*.html" ]
           }
         }
       }
