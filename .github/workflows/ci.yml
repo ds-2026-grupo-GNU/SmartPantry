@@ -29,5 +29,6 @@ jobs:
           node-version: 24
       - run: corepack enable
       - run: yarn install --frozen-lockfile
+      - run: npx playwright install chromium --with-deps
       - run: yarn build
       - run: yarn test --watch=false --browsers=ChromeHeadless
