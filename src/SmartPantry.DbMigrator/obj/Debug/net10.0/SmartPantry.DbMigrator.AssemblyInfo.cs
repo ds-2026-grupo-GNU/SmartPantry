@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartPantry.DbMigrator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ba627f4950890254daecc7e77baaa6faadf77cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d394df7fc9ca68cd61a5a5cf31e60fd8cf08e55")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartPantry.DbMigrator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartPantry.DbMigrator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

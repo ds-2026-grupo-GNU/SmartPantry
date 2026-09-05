@@ -2867,3 +2867,179 @@ Error Number:4060,State:1,Class:11
    at Volo.Abp.BackgroundJobs.BackgroundJobWorker.ExecuteJobsWithWorkerLockAsync(PeriodicBackgroundWorkerContext workerContext)
    at Volo.Abp.BackgroundJobs.BackgroundJobWorker.ExecuteJobsWithWorkerLockAsync(PeriodicBackgroundWorkerContext workerContext)
    at Volo.Abp.BackgroundJobs.BackgroundJobWorker.RunAsync()
+2026-09-05 13:00:50.923 -03:00 [INF] Starting SmartPantry.HttpApi.Host.
+2026-09-05 13:01:00.015 -03:00 [DBG] Loaded ABP modules:
+2026-09-05 13:01:00.018 -03:00 [DBG] - SmartPantry.SmartPantryHttpApiHostModule
+2026-09-05 13:01:00.018 -03:00 [DBG]   - SmartPantry.SmartPantryHttpApiModule
+2026-09-05 13:01:00.018 -03:00 [DBG]     - SmartPantry.SmartPantryApplicationContractsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]       - SmartPantry.SmartPantryDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]           - Volo.Abp.Validation.AbpValidationModule
+2026-09-05 13:01:00.018 -03:00 [DBG]             - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]             - Volo.Abp.Localization.AbpLocalizationModule
+2026-09-05 13:01:00.018 -03:00 [DBG]               - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2026-09-05 13:01:00.018 -03:00 [DBG]               - Volo.Abp.Settings.AbpSettingsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]                 - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]                 - Volo.Abp.Security.AbpSecurityModule
+2026-09-05 13:01:00.018 -03:00 [DBG]                 - Volo.Abp.Data.AbpDataModule
+2026-09-05 13:01:00.018 -03:00 [DBG]                   - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2026-09-05 13:01:00.018 -03:00 [DBG]                   - Volo.Abp.Uow.AbpUnitOfWorkModule
+2026-09-05 13:01:00.018 -03:00 [DBG]                   - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]               - Volo.Abp.Threading.AbpThreadingModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.BackgroundJobs.AbpBackgroundJobsDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]           - Volo.Abp.Json.SystemTextJson.AbpJsonSystemTextJsonModule
+2026-09-05 13:01:00.018 -03:00 [DBG]             - Volo.Abp.Json.AbpJsonAbstractionsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]             - Volo.Abp.Timing.AbpTimingModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]           - Volo.Abp.Features.AbpFeaturesModule
+2026-09-05 13:01:00.018 -03:00 [DBG]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2026-09-05 13:01:00.018 -03:00 [DBG]               - Volo.Abp.MultiTenancy.AbpMultiTenancyAbstractionsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]             - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]           - Volo.Abp.Users.AbpUsersDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.OpenIddict.AbpOpenIddictDomainSharedModule
+2026-09-05 13:01:00.018 -03:00 [DBG]         - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.BlobStoring.Database.BlobStoringDatabaseDomainSharedModule
+2026-09-05 13:01:00.020 -03:00 [DBG]       - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.Auditing.AbpAuditingContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.Json.AbpJsonModule
+2026-09-05 13:01:00.020 -03:00 [DBG]       - Volo.Abp.SettingManagement.AbpSettingManagementApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]       - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.Users.AbpUsersAbstractionModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.EventBus.AbpEventBusModule
+2026-09-05 13:01:00.020 -03:00 [DBG]             - Volo.Abp.Guids.AbpGuidsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2026-09-05 13:01:00.020 -03:00 [DBG]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.Authorization.AbpAuthorizationModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]       - Volo.Abp.Account.AbpAccountApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]       - Volo.Abp.TenantManagement.AbpTenantManagementApplicationContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]     - Volo.Abp.PermissionManagement.HttpApi.AbpPermissionManagementHttpApiModule
+2026-09-05 13:01:00.020 -03:00 [DBG]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.Auditing.AbpAuditingModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.Http.AbpHttpModule
+2026-09-05 13:01:00.020 -03:00 [DBG]             - Volo.Abp.Http.AbpHttpAbstractionsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]             - Volo.Abp.Minify.AbpMinifyModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.AspNetCore.AbpAspNetCoreAbstractionsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2026-09-05 13:01:00.020 -03:00 [DBG]           - Volo.Abp.UI.AbpUiModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2026-09-05 13:01:00.020 -03:00 [DBG]         - Volo.Abp.Application.AbpDddApplicationModule
+2026-09-05 13:01:00.021 -03:00 [DBG]           - Volo.Abp.Domain.AbpDddDomainModule
+2026-09-05 13:01:00.021 -03:00 [DBG]             - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2026-09-05 13:01:00.021 -03:00 [DBG]             - Volo.Abp.Specifications.AbpSpecificationsModule
+2026-09-05 13:01:00.021 -03:00 [DBG]             - Volo.Abp.Caching.AbpCachingModule
+2026-09-05 13:01:00.021 -03:00 [DBG]               - Volo.Abp.Serialization.AbpSerializationModule
+2026-09-05 13:01:00.021 -03:00 [DBG]             - Volo.Abp.Domain.AbpDddDomainSharedModule
+2026-09-05 13:01:00.021 -03:00 [DBG]     - Volo.Abp.SettingManagement.AbpSettingManagementHttpApiModule
+2026-09-05 13:01:00.021 -03:00 [DBG]     - Volo.Abp.Account.AbpAccountHttpApiModule
+2026-09-05 13:01:00.021 -03:00 [DBG]       - Volo.Abp.Identity.AbpIdentityHttpApiModule
+2026-09-05 13:01:00.021 -03:00 [DBG]     - Volo.Abp.TenantManagement.AbpTenantManagementHttpApiModule
+2026-09-05 13:01:00.021 -03:00 [DBG]       - Volo.Abp.FeatureManagement.AbpFeatureManagementHttpApiModule
+2026-09-05 13:01:00.021 -03:00 [DBG]   - Volo.Abp.Studio.Client.AspNetCore.AbpStudioClientAspNetCoreModule
+2026-09-05 13:01:00.021 -03:00 [DBG]     - Volo.Abp.Studio.AbpStudioClientModule
+2026-09-05 13:01:00.021 -03:00 [DBG]       - Volo.Abp.Studio.AbpStudioClientContractsModule
+2026-09-05 13:01:00.021 -03:00 [DBG]   - Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.AbpAspNetCoreMvcUiLeptonXLiteThemeModule
+2026-09-05 13:01:00.021 -03:00 [DBG]     - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2026-09-05 13:01:00.022 -03:00 [DBG]         - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2026-09-05 13:01:00.022 -03:00 [DBG]         - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingAbstractionsModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2026-09-05 13:01:00.022 -03:00 [DBG]         - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2026-09-05 13:01:00.022 -03:00 [DBG]           - Volo.Abp.AspNetCore.Bundling.AbpAspNetCoreBundlingModule
+2026-09-05 13:01:00.022 -03:00 [DBG]     - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2026-09-05 13:01:00.022 -03:00 [DBG]     - Volo.Abp.Mapperly.AbpMapperlyModule
+2026-09-05 13:01:00.022 -03:00 [DBG]   - Volo.Abp.Autofac.AbpAutofacModule
+2026-09-05 13:01:00.022 -03:00 [DBG]     - Volo.Abp.Castle.AbpCastleCoreModule
+2026-09-05 13:01:00.022 -03:00 [DBG]   - SmartPantry.SmartPantryApplicationModule
+2026-09-05 13:01:00.022 -03:00 [DBG]     - SmartPantry.SmartPantryDomainModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.BackgroundJobs.AbpBackgroundJobsDomainModule
+2026-09-05 13:01:00.022 -03:00 [DBG]         - Volo.Abp.BackgroundJobs.AbpBackgroundJobsModule
+2026-09-05 13:01:00.022 -03:00 [DBG]           - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.PermissionManagement.Identity.AbpPermissionManagementDomainIdentityModule
+2026-09-05 13:01:00.022 -03:00 [DBG]         - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2026-09-05 13:01:00.022 -03:00 [DBG]       - Volo.Abp.PermissionManagement.OpenIddict.AbpPermissionManagementDomainOpenIddictModule
+2026-09-05 13:01:00.023 -03:00 [DBG]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.Emailing.AbpEmailingModule
+2026-09-05 13:01:00.024 -03:00 [DBG]         - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2026-09-05 13:01:00.024 -03:00 [DBG]           - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2026-09-05 13:01:00.024 -03:00 [DBG]             - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.Identity.AbpIdentityDomainModule
+2026-09-05 13:01:00.024 -03:00 [DBG]         - Volo.Abp.Users.AbpUsersDomainModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.OpenIddict.AbpOpenIddictDomainModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.BlobStoring.Database.BlobStoringDatabaseDomainModule
+2026-09-05 13:01:00.024 -03:00 [DBG]         - Volo.Abp.BlobStoring.AbpBlobStoringModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.Identity.AbpIdentityApplicationModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.Account.AbpAccountApplicationModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.TenantManagement.AbpTenantManagementApplicationModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.SettingManagement.AbpSettingManagementApplicationModule
+2026-09-05 13:01:00.024 -03:00 [DBG]   - SmartPantry.EntityFrameworkCore.SmartPantryEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.BackgroundJobs.EntityFrameworkCore.AbpBackgroundJobsEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.Identity.EntityFrameworkCore.AbpIdentityEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.Users.EntityFrameworkCore.AbpUsersEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.OpenIddict.EntityFrameworkCore.AbpOpenIddictEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.BlobStoring.Database.EntityFrameworkCore.BlobStoringDatabaseEntityFrameworkCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]   - Volo.Abp.Account.Web.AbpAccountWebOpenIddictModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.Account.Web.AbpAccountWebModule
+2026-09-05 13:01:00.024 -03:00 [DBG]       - Volo.Abp.Identity.AspNetCore.AbpIdentityAspNetCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]     - Volo.Abp.OpenIddict.AbpOpenIddictAspNetCoreModule
+2026-09-05 13:01:00.024 -03:00 [DBG]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2026-09-05 13:01:00.024 -03:00 [DBG]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2026-09-05 13:01:01.295 -03:00 [DBG] Started background worker: Volo.Abp.OpenIddict.Tokens.TokenCleanupBackgroundWorker
+2026-09-05 13:01:02.207 -03:00 [INF] User profile is available. Using 'C:\Users\matia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-05 13:01:02.743 -03:00 [INF] Initialized all ABP modules.
+2026-09-05 13:01:03.018 -03:00 [INF] Initializing UI Database
+2026-09-05 13:01:03.848 -03:00 [INF] Saving healthchecks configuration to database
+2026-09-05 13:01:04.467 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44349/ - null null
+2026-09-05 13:01:04.684 -03:00 [DBG] Executing HealthCheck collector HostedService.
+2026-09-05 13:01:04.838 -03:00 [INF] Start processing HTTP request GET https://localhost:44349/health-status
+2026-09-05 13:01:04.841 -03:00 [INF] Sending HTTP request GET https://localhost:44349/health-status
+2026-09-05 13:01:05.011 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:44349/health-status - null null
+2026-09-05 13:01:05.067 -03:00 [ERR] The 'wwwroot/libs' folder does not exist or empty! If your application does not use any client-side libraries, you can disable this check by setting 'AbpMvcLibsOptions.CheckLibs' to 'false'
+2026-09-05 13:01:05.174 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:44349/health-status - 500 null text/html; charset=utf-8 163.1472ms
+2026-09-05 13:01:05.185 -03:00 [INF] Received HTTP response headers after 334.6374ms - 500
+2026-09-05 13:01:05.189 -03:00 [INF] End processing HTTP request after 357.7997ms - 500
+2026-09-05 13:01:05.428 -03:00 [DBG] HealthReportCollector - health report execution history saved.
+2026-09-05 13:01:05.575 -03:00 [DBG] Creating a new HealthReport history.
+2026-09-05 13:01:05.858 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44349/ - 500 null text/html; charset=utf-8 1409.4265ms
+2026-09-05 13:01:05.992 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44349/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-05 13:01:06.018 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44349/_vs/browserLink - null null
+2026-09-05 13:01:06.026 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44349/_framework/aspnetcore-browser-refresh.js - 200 14953 application/javascript; charset=utf-8 30.2711ms
+2026-09-05 13:01:06.136 -03:00 [DBG] HealthReportCollector has completed.
+2026-09-05 13:01:06.138 -03:00 [DBG] HealthCheck collector HostedService executed successfully.
+2026-09-05 13:01:06.290 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44349/_vs/browserLink - 200 null text/javascript; charset=UTF-8 272.1929ms
+2026-09-05 13:01:06.324 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44349/favicon.ico - null null
+2026-09-05 13:01:06.327 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44349/favicon.ico - 500 null text/html; charset=utf-8 2.6328ms
+2026-09-05 13:01:16.146 -03:00 [DBG] Executing HealthCheck collector HostedService.
+2026-09-05 13:01:16.207 -03:00 [INF] Start processing HTTP request GET https://localhost:44349/health-status
+2026-09-05 13:01:16.207 -03:00 [INF] Sending HTTP request GET https://localhost:44349/health-status
+2026-09-05 13:01:16.211 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:44349/health-status - null null
+2026-09-05 13:01:16.212 -03:00 [INF] Received HTTP response headers after 5.5369ms - 500
+2026-09-05 13:01:16.212 -03:00 [INF] End processing HTTP request after 5.8258ms - 500
+2026-09-05 13:01:16.212 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:44349/health-status - 500 null text/html; charset=utf-8 1.5354ms
+2026-09-05 13:01:16.220 -03:00 [INF] Notification is sent on same window time.
+2026-09-05 13:01:16.220 -03:00 [DBG] HealthReportCollector - health report execution history saved.
+2026-09-05 13:01:16.230 -03:00 [DBG] HealthReport history already exists and is in the same state, updating the values.
+2026-09-05 13:01:16.236 -03:00 [DBG] HealthReportCollector has completed.
+2026-09-05 13:01:16.236 -03:00 [DBG] HealthCheck collector HostedService executed successfully.
