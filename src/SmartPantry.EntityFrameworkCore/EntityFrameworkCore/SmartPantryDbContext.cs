@@ -16,6 +16,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using SmartPantry.Productos;
 
 namespace SmartPantry.EntityFrameworkCore;
 
@@ -32,6 +33,8 @@ public class SmartPantryDbContext :
     public DbSet<Author> Authors { get; set; }
 
     public DbSet<Book> Books { get; set; }
+
+    public DbSet<Producto> Productos { get; set; }
 
     #region Entities from the modules
 
@@ -104,11 +107,15 @@ public class SmartPantryDbContext :
 
         /* Configure your own tables/entities inside here */
 
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(SmartPantryConsts.DbTablePrefix + "YourEntities", SmartPantryConsts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
+        /* Configure your own tables/entities inside here */
+
+        builder.Entity<Producto>(b =>
+        {
+            b.ToTable(SmartPantryConsts.DbTablePrefix + "Productos", SmartPantryConsts.DbSchema);
+            b.ConfigureByConvention(); //auto configure for the base class props
+            b.Property(x => x.Nombre).IsRequired().HasMaxLength(ProductoConsts.MaxNombreLength);
+        });
     }
 }
+
+       
