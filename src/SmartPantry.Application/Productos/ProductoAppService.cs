@@ -1,36 +1,47 @@
 using System;
 using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
 namespace SmartPantry.Productos;
 
-public class ProductoAppService : SmartPantryAppService, IProductoAppService
+// 1. Heredamos de CrudAppService, lo que nos regala GetListAsync, DeleteAsync y GetAsync.
+public class ProductoAppService :
+    CrudAppService<
+        Producto,
+        ProductoDto,
+        Guid,
+        PagedAndSortedResultRequestDto,
+        CreateProductoDto,
+        UpdateProductoDto>,
+    IProductoAppService
 {
-    private readonly IRepository<Producto, Guid> _productoRepository;
-
-    public ProductoAppService(IRepository<Producto, Guid> productoRepository)
+    public ProductoAppService(IRepository<Producto, Guid> repository)
+        : base(repository)
     {
-        _productoRepository = productoRepository;
     }
 
-    public async Task<ProductoDto> CreateAsync(CreateProductoDto input)
+    // 2. Sobreescribimos la creación para obligar a usar el constructor de nuestra Entidad
+    public override async Task<ProductoDto> CreateAsync(CreateProductoDto input)
     {
-        // El Id se genera internamente usando el IGuidGenerator provisto por la clase base
-        var producto = new Producto(
-            GuidGenerator.Create(),
-            input.Nombre
-        );
-
-        await _productoRepository.InsertAsync(producto);
+        var producto = new Producto(GuidGenerator.Create(), input.Nombre);
+        await Repository.InsertAsync(producto);
 
         return ObjectMapper.Map<Producto, ProductoDto>(producto);
     }
 
-    public async Task<ProductoDto> GetAsync(Guid id)
+    // 3. Sobreescribimos la actualización para que respete el método SetNombre (y sus validaciones)
+    public override async Task<ProductoDto> UpdateAsync(Guid id, UpdateProductoDto input)
     {
-        // GetAsync devuelve automáticamente el error 404 si el Id no existe
-        var producto = await _productoRepository.GetAsync(id);
+        // Buscamos la entidad original
+        var producto = await Repository.GetAsync(id);
+
+        // Aplicamos la regla de dominio (normaliza y valida antes de cambiar el estado)
+        producto.SetNombre(input.Nombre);
+
+        // Guardamos los cambios
+        await Repository.UpdateAsync(producto);
 
         return ObjectMapper.Map<Producto, ProductoDto>(producto);
     }
