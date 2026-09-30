@@ -1,7 +1,6 @@
-using System.Threading.Tasks;
-using SmartPantry.EntityFrameworkCore; 
-using SmartPantry.Productos;
 using Shouldly;
+using SmartPantry.EntityFrameworkCore;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace SmartPantry.Productos;
@@ -27,5 +26,21 @@ public class ProductoAppService_Tests : SmartPantryEntityFrameworkCoreTestBase
         // Assert
         productoCreado.ShouldNotBeNull();
         productoCreado.Nombre.ShouldBe("Harina");
+    }
+
+    [Fact]
+    public async Task Deberia_Obtener_Producto_Por_Id_Correctamente()
+    {
+        // Arrange: creamos un producto para tener un Id real
+        var input = new CreateProductoDto { Nombre = "Fideos" };
+        var productoCreado = await _productoAppService.CreateAsync(input);
+
+        // Act
+        var productoObtenido = await _productoAppService.GetAsync(productoCreado.Id);
+
+        // Assert
+        productoObtenido.ShouldNotBeNull();
+        productoObtenido.Id.ShouldBe(productoCreado.Id);
+        productoObtenido.Nombre.ShouldBe("Fideos");
     }
 }
