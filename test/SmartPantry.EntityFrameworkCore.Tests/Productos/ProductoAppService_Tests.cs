@@ -18,6 +18,33 @@ public class ProductoAppService_Tests : SmartPantryEntityFrameworkCoreTestBase
         _productoAppService = GetRequiredService<IProductoAppService>();
     }
 
+    // TP05
+    [Fact]
+    public async Task Deberia_Crear_Producto_Correctamente()
+    {
+        var input = new CreateProductoDto { Nombre = "Harina" };
+
+        var productoCreado = await _productoAppService.CreateAsync(input);
+
+        productoCreado.ShouldNotBeNull();
+        productoCreado.Nombre.ShouldBe("Harina");
+    }
+
+    // TP05 (corrección pedida por la cátedra)
+    [Fact]
+    public async Task Deberia_Obtener_Producto_Por_Id_Correctamente()
+    {
+        var input = new CreateProductoDto { Nombre = "Fideos" };
+        var productoCreado = await _productoAppService.CreateAsync(input);
+
+        var productoObtenido = await _productoAppService.GetAsync(productoCreado.Id);
+
+        productoObtenido.ShouldNotBeNull();
+        productoObtenido.Id.ShouldBe(productoCreado.Id);
+        productoObtenido.Nombre.ShouldBe("Fideos");
+    }
+
+    // TP06
     [Fact]
     public async Task Deberia_Realizar_CRUD_Completo_De_Producto()
     {
@@ -29,7 +56,6 @@ public class ProductoAppService_Tests : SmartPantryEntityFrameworkCoreTestBase
         productoCreado.Nombre.ShouldBe("Azúcar");
 
         // 2. LISTAR (GetList - Paginado)
-        // Usamos el DTO de paginación nativo de ABP
         var listResult = await _productoAppService.GetListAsync(new PagedAndSortedResultRequestDto());
 
         listResult.TotalCount.ShouldBeGreaterThan(0);
@@ -48,11 +74,10 @@ public class ProductoAppService_Tests : SmartPantryEntityFrameworkCoreTestBase
         // 5. ELIMINAR (Delete)
         await _productoAppService.DeleteAsync(productoCreado.Id);
 
-        // 6. COMPROBAR ELIMINACIÓN (Demostrar qué sucede al consultar luego de borrar)
+        // 6. COMPROBAR ELIMINACIÓN
         await Assert.ThrowsAsync<EntityNotFoundException<Producto>>(async () =>
         {
             await _productoAppService.GetAsync(productoCreado.Id);
         });
-
     }
 }
