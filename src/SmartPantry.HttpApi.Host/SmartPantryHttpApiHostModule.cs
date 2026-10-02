@@ -127,7 +127,25 @@ public class SmartPantryHttpApiHostModule : AbpModule
         ConfigureSwagger(context, configuration);
         ConfigureVirtualFileSystem(context);
         ConfigureCors(context, configuration);
+
+        // Configuración de IHttpClientFactory para el catálogo externo (TP07)
+        context.Services.AddHttpClient<
+            SmartPantry.CatalogoExterno.IExternalProductCatalogClient,
+            SmartPantry.HttpApi.Host.CatalogoExterno.OpenFoodFactsProductCatalogClient>(client =>
+            {
+                client.BaseAddress = new Uri("https://world.openfoodfacts.org");
+
+                // Timeout razonable sugerido por buenas prácticas
+                client.Timeout = TimeSpan.FromSeconds(10);
+
+                // Requisito de Open Food Facts: User-Agent identificable
+                client.DefaultRequestHeaders.Add("User-Agent", "SmartPantry - UTN FRCU - TP07 (matiasschramm78@gmail.com)");
+
+                // Indicamos que aceptamos JSON
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            });
     }
+
 
     private void ConfigureStudio(IHostEnvironment hostingEnvironment)
     {
@@ -301,5 +319,8 @@ public class SmartPantryHttpApiHostModule : AbpModule
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseConfiguredEndpoints();
+    
     }
+
+
 }
