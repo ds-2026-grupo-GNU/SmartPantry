@@ -1,10 +1,10 @@
-﻿namespace SmartPantry.CatalogoExterno;
+namespace SmartPantry.CatalogoExterno;
 
 public class ProductoExternoDto
 {
-    public bool Encontrado { get; set; }
+    public EstadoConsultaProductoExterno Estado { get; set; }
 
-    // Estos campos solo tendrán valor si Encontrado es true y el proveedor los informa
+    // Estos campos solo tendrán valor si Estado es Encontrado y el proveedor los informa
     public string? Nombre { get; set; }
     public string? Marca { get; set; }
     public string? ImagenUrl { get; set; }
