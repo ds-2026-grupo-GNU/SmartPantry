@@ -1,4 +1,3 @@
-﻿using System;
 using System.Threading.Tasks;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
@@ -25,7 +24,6 @@ public class CatalogoExternoAppServiceTests
     [Fact]
     public async Task Deberia_Retornar_Encontrado_Cuando_El_Producto_Existe()
     {
-       
         var codigo = "3017620422003";
         _mockClient.GetByBarcodeAsync(codigo).Returns(new ExternalProductDto
         {
@@ -37,13 +35,14 @@ public class CatalogoExternoAppServiceTests
         var input = new ConsultarProductoExternoDto { CodigoBarras = codigo };
 
         // Act:Ejecutamos el servicio
-        var resultado = await _appService.ConsultarPorCodigoAsync(input);
+        var resultado = await _appService.GetPorCodigoAsync(input);
 
         // Assert: Comprobamos que el servicio tradujo bien los datos
         resultado.ShouldNotBeNull();
-        resultado.Encontrado.ShouldBeTrue();
+        resultado.Estado.ShouldBe(EstadoConsultaProductoExterno.Encontrado);
         resultado.Nombre.ShouldBe("Nutella");
         resultado.Marca.ShouldBe("Ferrero");
+        resultado.ImagenUrl.ShouldBe("http://ejemplo.com/nutella.jpg");
     }
 
     [Fact]
@@ -56,11 +55,11 @@ public class CatalogoExternoAppServiceTests
         var input = new ConsultarProductoExternoDto { CodigoBarras = codigo };
 
         // Act
-        var resultado = await _appService.ConsultarPorCodigoAsync(input);
+        var resultado = await _appService.GetPorCodigoAsync(input);
 
         // Assert
         resultado.ShouldNotBeNull();
-        resultado.Encontrado.ShouldBeFalse();
+        resultado.Estado.ShouldBe(EstadoConsultaProductoExterno.NoEncontrado);
         resultado.Nombre.ShouldBeNull();
     }
 
@@ -68,7 +67,7 @@ public class CatalogoExternoAppServiceTests
     public async Task Deberia_Manejar_Datos_Ausentes_Correctamente()
     {
         // Arrange: Simulamos un producto que no tiene marca ni imagen (RF-09)
-        var codigo = "123456789";
+        var codigo = "12345678";
         _mockClient.GetByBarcodeAsync(codigo).Returns(new ExternalProductDto
         {
             Nombre = "Producto Genérico",
@@ -79,43 +78,49 @@ public class CatalogoExternoAppServiceTests
         var input = new ConsultarProductoExternoDto { CodigoBarras = codigo };
 
         // Act
-        var resultado = await _appService.ConsultarPorCodigoAsync(input);
+        var resultado = await _appService.GetPorCodigoAsync(input);
 
         // Assert
-        resultado.Encontrado.ShouldBeTrue();
+        resultado.ShouldNotBeNull();
+        resultado.Estado.ShouldBe(EstadoConsultaProductoExterno.Encontrado);
         resultado.Nombre.ShouldBe("Producto Genérico");
         resultado.Marca.ShouldBeNull(); // No debe inventar datos
+        resultado.ImagenUrl.ShouldBeNull();
     }
 
     [Fact]
-    public async Task Deberia_Propagar_Excepcion_Cuando_Hay_Limite_De_Consultas()
+    public async Task Deberia_Retornar_Limite_De_Consultas_Cuando_El_Proveedor_Responde_429()
     {
         // Arrange: Simulamos el error 429 Too Many Requests
-        var codigo = "111111111";
-        _mockClient.GetByBarcodeAsync(codigo).Throws(new ApplicationException("Rate limit exceeded"));
+        var codigo = "11111111";
+        _mockClient.GetByBarcodeAsync(codigo).ThrowsAsync(new ProveedorLimiteConsultasException());
 
         var input = new ConsultarProductoExternoDto { CodigoBarras = codigo };
 
-        // Act & Assert: Verificamos que el servicio deja pasar la excepción
-        await Assert.ThrowsAsync<ApplicationException>(async () =>
-        {
-            await _appService.ConsultarPorCodigoAsync(input);
-        });
+        // Act: la excepción no debe escapar del servicio
+        var resultado = await _appService.GetPorCodigoAsync(input);
+
+        // Assert
+        resultado.ShouldNotBeNull();
+        resultado.Estado.ShouldBe(EstadoConsultaProductoExterno.LimiteDeConsultas);
+        resultado.Nombre.ShouldBeNull();
     }
 
     [Fact]
-    public async Task Deberia_Propagar_Excepcion_Cuando_Proveedor_No_Disponible()
+    public async Task Deberia_Retornar_Proveedor_No_Disponible_Cuando_El_Proveedor_Falla()
     {
-        // Arrange: Simulamos un error de red o timeout (500)
-        var codigo = "999999999";
-        _mockClient.GetByBarcodeAsync(codigo).Throws(new ApplicationException("External product catalog is currently unavailable."));
+        // Arrange: Simulamos un error de red, timeout o HTTP 500
+        var codigo = "99999999";
+        _mockClient.GetByBarcodeAsync(codigo).ThrowsAsync(new ProveedorNoDisponibleException("El catálogo externo de productos no está disponible."));
 
         var input = new ConsultarProductoExternoDto { CodigoBarras = codigo };
 
-        // Act & Assert
-        await Assert.ThrowsAsync<ApplicationException>(async () =>
-        {
-            await _appService.ConsultarPorCodigoAsync(input);
-        });
+        // Act: la excepción no debe escapar del servicio
+        var resultado = await _appService.GetPorCodigoAsync(input);
+
+        // Assert
+        resultado.ShouldNotBeNull();
+        resultado.Estado.ShouldBe(EstadoConsultaProductoExterno.ProveedorNoDisponible);
+        resultado.Nombre.ShouldBeNull();
     }
 }
