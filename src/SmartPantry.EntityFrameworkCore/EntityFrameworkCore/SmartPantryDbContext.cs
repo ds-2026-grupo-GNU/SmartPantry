@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using SmartPantry.Authors;
 using SmartPantry.Books;
+using SmartPantry.Despensa;
+using SmartPantry.Productos;
+using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -11,12 +13,11 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
+using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
-using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
-using SmartPantry.Productos;
 
 namespace SmartPantry.EntityFrameworkCore;
 
@@ -115,7 +116,23 @@ public class SmartPantryDbContext :
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Nombre).IsRequired().HasMaxLength(ProductoConsts.MaxNombreLength);
         });
+        builder.Entity<DespensaItem>(b =>
+        {
+            b.ToTable(SmartPantryConsts.DbTablePrefix + "DespensaItems", SmartPantryConsts.DbSchema);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<AdvertenciaVencimiento>(b =>
+        {
+            b.ToTable(SmartPantryConsts.DbTablePrefix + "AdvertenciasVencimiento", SmartPantryConsts.DbSchema);
+            b.ConfigureByConvention();
+
+            // REGLA DE NEGOCIO: Índice único para garantizar la idempotencia a nivel de BD[cite: 10]
+            b.HasIndex(x => x.DespensaItemId).IsUnique();
+        });
     }
+    public DbSet<DespensaItem> DespensaItems { get; set; }
+    public DbSet<AdvertenciaVencimiento> AdvertenciasVencimiento { get; set; }
 }
 
        
