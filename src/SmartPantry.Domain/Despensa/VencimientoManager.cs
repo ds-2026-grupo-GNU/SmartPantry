@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Volo.Abp.Domain.Services;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Domain.Services;
 
 namespace SmartPantry.Despensa;
 
@@ -24,15 +24,15 @@ public class VencimientoManager : DomainService
     // advertencia activa (aunque estén consumidos o desechados) para poder desactivarla.
     public async Task<List<Guid>> ObtenerIdsDeItemsAProcesarAsync()
     {
-        var idsDisponibles = (await _itemsRepository.GetQueryableAsync())
-            .Where(x => x.Estado == EstadoItemDespensa.Disponible)
-            .Select(x => x.Id)
-            .ToList();
+        var idsDisponibles = await AsyncExecuter.ToListAsync(
+            (await _itemsRepository.GetQueryableAsync())
+                .Where(x => x.Estado == EstadoItemDespensa.Disponible)
+                .Select(x => x.Id));
 
-        var idsConAdvertenciaActiva = (await _advertenciasRepository.GetQueryableAsync())
-            .Where(x => x.Activa)
-            .Select(x => x.DespensaItemId)
-            .ToList();
+        var idsConAdvertenciaActiva = await AsyncExecuter.ToListAsync(
+            (await _advertenciasRepository.GetQueryableAsync())
+                .Where(x => x.Activa)
+                .Select(x => x.DespensaItemId));
 
         // TODO: si el ítem de una advertencia activa dejó de existir, el worker lo saltea (FindAsync null).
         return idsDisponibles.Union(idsConAdvertenciaActiva).ToList();

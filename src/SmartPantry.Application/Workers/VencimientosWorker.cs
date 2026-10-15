@@ -1,11 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Volo.Abp.BackgroundWorkers;
+using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Threading;
 using Volo.Abp.Uow;
-using Volo.Abp.Domain.Repositories;
 
 namespace SmartPantry.Despensa;
 
@@ -35,8 +36,12 @@ public class VencimientosWorker : AsyncPeriodicBackgroundWorkerBase
         var hoyUtc = DateTime.UtcNow.Date;
 
         // La selección de ítems es parte de la regla: la decide el Domain Service
-        var idsAProcesar = await vencimientoManager.ObtenerIdsDeItemsAProcesarAsync();
-
+        List<Guid> idsAProcesar;
+        using (var uowSeleccion = uowManager.Begin())
+        {
+            idsAProcesar = await vencimientoManager.ObtenerIdsDeItemsAProcesarAsync();
+            await uowSeleccion.CompleteAsync();
+        }
         foreach (var itemId in idsAProcesar)
         {
             try
