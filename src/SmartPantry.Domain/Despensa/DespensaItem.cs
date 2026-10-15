@@ -6,8 +6,8 @@ namespace SmartPantry.Despensa;
 // Heredamos de AuditedAggregateRoot para tener fecha de creación automáticamente
 public class DespensaItem : AuditedAggregateRoot<Guid>
 {
-    public Guid PropietarioId { get; set; } 
-    public Guid ProductoId { get; set; } 
-    public EstadoItemDespensa Estado { get; set; } // Consumido, Disponible...[cite: 10]
+    public Guid PropietarioId { get; set; }
+    public Guid ProductoId { get; set; }
+    public EstadoItemDespensa Estado { get; set; } // Consumido, Disponible...
     public DateTime? FechaVencimiento { get; set; }
 }
