@@ -127,7 +127,7 @@ public class SmartPantryDbContext :
             b.ToTable(SmartPantryConsts.DbTablePrefix + "AdvertenciasVencimiento", SmartPantryConsts.DbSchema);
             b.ConfigureByConvention();
 
-            // REGLA DE NEGOCIO: Índice único para garantizar la idempotencia a nivel de BD[cite: 10]
+            // REGLA DE NEGOCIO: Índice único para garantizar la idempotencia a nivel de BD
             b.HasIndex(x => x.DespensaItemId).IsUnique();
         });
     }
@@ -135,4 +135,3 @@ public class SmartPantryDbContext :
     public DbSet<AdvertenciaVencimiento> AdvertenciasVencimiento { get; set; }
 }
 
-       

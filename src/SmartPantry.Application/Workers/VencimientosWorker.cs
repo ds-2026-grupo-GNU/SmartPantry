@@ -1,11 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Volo.Abp.BackgroundWorkers;
+using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Threading;
 using Volo.Abp.Uow;
-using Volo.Abp.Domain.Repositories;
 
 namespace SmartPantry.Despensa;
 
@@ -31,10 +32,17 @@ public class VencimientosWorker : AsyncPeriodicBackgroundWorkerBase
         var vencimientoManager = workerContext.ServiceProvider.GetRequiredService<VencimientoManager>();
         var uowManager = workerContext.ServiceProvider.GetRequiredService<IUnitOfWorkManager>();
 
-        // Solo traemos los ítems que están disponibles para no cargar la memoria en vano
-        var itemsDisponibles = await despensaRepository.GetListAsync(x => x.Estado == EstadoItemDespensa.Disponible);
+        // Fecha de referencia única para toda la corrida (UTC, día calendario)
+        var hoyUtc = DateTime.UtcNow.Date;
 
-        foreach (var item in itemsDisponibles)
+        // La selección de ítems es parte de la regla: la decide el Domain Service
+        List<Guid> idsAProcesar;
+        using (var uowSeleccion = uowManager.Begin())
+        {
+            idsAProcesar = await vencimientoManager.ObtenerIdsDeItemsAProcesarAsync();
+            await uowSeleccion.CompleteAsync();
+        }
+        foreach (var itemId in idsAProcesar)
         {
             try
             {
@@ -43,8 +51,14 @@ public class VencimientosWorker : AsyncPeriodicBackgroundWorkerBase
                 // no deshace el guardado de los demás.
                 using (var uow = uowManager.Begin())
                 {
+                    var item = await despensaRepository.FindAsync(itemId);
+                    if (item == null)
+                    {
+                        continue;
+                    }
+
                     // Delegamos la regla de negocio al Domain Service
-                    await vencimientoManager.ProcesarItemAsync(item);
+                    await vencimientoManager.ProcesarItemAsync(item, hoyUtc);
 
                     // Confirmamos los cambios en la base de datos
                     await uow.CompleteAsync();
@@ -52,9 +66,10 @@ public class VencimientosWorker : AsyncPeriodicBackgroundWorkerBase
             }
             catch (Exception ex)
             {
-                // 3. REGISTRAR ERRORES SIN DETENER EJECUCIONES[cite: 10]
-                // Si el ítem falla, lo logueamos pero el foreach continúa con el siguiente producto.
-                Logger.LogError(ex, "Error procesando el vencimiento para el ítem {ItemId}", item.Id);
+                // 3. REGISTRAR ERRORES SIN DETENER EJECUCIONES
+                // Si el ítem falla (p. ej. violación del índice único por dos corridas superpuestas),
+                // lo logueamos y seguimos: la próxima corrida corrige el estado.
+                Logger.LogError(ex, "Error procesando el vencimiento para el ítem {ItemId}", itemId);
             }
         }
 

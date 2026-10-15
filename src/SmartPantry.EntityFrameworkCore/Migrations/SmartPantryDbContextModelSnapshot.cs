@@ -179,6 +179,9 @@ namespace SmartPantry.Migrations
                     b.Property<DateTime>("FechaCalculo")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("FechaVencimiento")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnType("datetime2")
                         .HasColumnName("LastModificationTime");
