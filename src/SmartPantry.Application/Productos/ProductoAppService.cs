@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SmartPantry.Productos;
 
+[Authorize]
 // 1. Heredamos de CrudAppService, lo que nos regala GetListAsync, DeleteAsync y GetAsync.
 public class ProductoAppService :
     CrudAppService<
