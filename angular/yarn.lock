@@ -298,6 +298,7 @@
 
 "@angular-devkit/architect@>= 0.2200.0 < 0.2300.0":
   version "0.2201.7"
+  resolved "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2201.7.tgz"
   integrity sha512-qffChB0+3WuLcwDk9gx3p/Vl3zYJDomweui5zsLESDMzvJ8zsbKRkgohTieOngajx+XBsklp0gKcxjiVn4NvWQ==
   dependencies:
     "@angular-devkit/core" "22.1.7"
