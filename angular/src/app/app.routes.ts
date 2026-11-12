@@ -1,5 +1,6 @@
 import { authGuard, permissionGuard } from '@abp/ng.core';
 import { Routes } from '@angular/router';
+
 export const APP_ROUTES: Routes = [
   {
     path: '',
@@ -32,4 +33,9 @@ export const APP_ROUTES: Routes = [
     loadComponent: () => import('./author/author.component').then(c => c.AuthorComponent),
     canActivate: [authGuard, permissionGuard],
   },
+  {
+    path: 'my-pantry',
+    loadComponent: () => import('./my-pantry/my-pantry.component').then(c => c.MyPantryComponent),
+    canActivate: [authGuard],
+  }
 ];

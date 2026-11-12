@@ -4,10 +4,12 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "jasmine",
+      "node"
     ],
-    "target": "ESNext",
-    "module": "ESNext"
+    "target": "ES2022"  ,
+    "module": "ES2022"
   },
   "include": [
     "src/**/*.spec.ts",
