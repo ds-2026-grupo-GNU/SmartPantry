@@ -37,6 +37,24 @@
     "Unspecified": "Sistema",
     "SeeAllUsers": "Ver todos los usuarios",
     "TakePhoto": "Tomar foto",
-    "ChoosePhoto": "Escoge una foto"
+    "ChoosePhoto": "Escoge una foto",
+    "Menu:MyPantry": "Mi Despensa",
+    "Pantry:Empty": "Tu despensa está vacía.",
+    "Pantry:NotSpecified": "No especificado",
+    "Pantry:NewProduct": "Nuevo Producto",
+    "Pantry:Quantity": "Cantidad",
+    "Pantry:Product": "Producto",
+    "Pantry:Unit": "Unidad",
+    "Pantry:ExpirationDate": "Fecha Expiracion",
+    "Pantry:Save": "Guardar",
+    "Pantry:Cancel": "Cancelar",
+    "Pantry:SelectProduct": "Seleccionar Producto",
+    "Pantry:Consume": "Marcar Consumido",
+    "Pantry:Edit": "Editar",
+    "Pantry:Delete": "Eliminar",
+    "Pantry:ConsumedBadge": "Consumido",
+    "Pantry:Actions": "Acciones",
+    "Pantry:QuantityMinError": "La cantidad no puede ser negativa"
+
   }
 }

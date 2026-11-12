@@ -130,8 +130,23 @@ public class SmartPantryDbContext :
             // REGLA DE NEGOCIO: Índice único para garantizar la idempotencia a nivel de BD
             b.HasIndex(x => x.DespensaItemId).IsUnique();
         });
+
+        builder.Entity<DespensaItem>(b =>
+        {
+            b.ToTable(SmartPantryConsts.DbTablePrefix + "DespensaItems", SmartPantryConsts.DbSchema);
+            b.ConfigureByConvention();
+
+            // Datos opcionales de TP10
+            b.Property(x => x.Cantidad).HasPrecision(18, 3);
+            b.Property(x => x.Unidad).HasMaxLength(DespensaConsts.MaxUnidadLength);
+
+            // El listado de "Mi despensa" filtra siempre por dueño
+            b.HasIndex(x => x.PropietarioId);
+        });
     }
     public DbSet<DespensaItem> DespensaItems { get; set; }
     public DbSet<AdvertenciaVencimiento> AdvertenciasVencimiento { get; set; }
+
+
 }
 
