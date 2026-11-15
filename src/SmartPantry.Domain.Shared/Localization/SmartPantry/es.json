@@ -54,7 +54,11 @@
     "Pantry:Delete": "Eliminar",
     "Pantry:ConsumedBadge": "Consumido",
     "Pantry:Actions": "Acciones",
-    "Pantry:QuantityMinError": "La cantidad no puede ser negativa"
+    "Pantry:QuantityMinError": "La cantidad no puede ser negativa",
+    "Pantry:Loading": "Cargando",
+    "Pantry:EditProduct": "Editar",
+    "Pantry:LoadError": "No pudimos cargar los datos de tu despensa en este momento. Por favor, verifica tu conexión.",
+    "Pantry:Retry": "Reintentar"
 
   }
 }

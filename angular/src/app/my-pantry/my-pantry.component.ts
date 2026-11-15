@@ -12,6 +12,8 @@ import { EstadoItemDespensa } from '../proxy/despensa/estado-item-despensa.enum'
 import { ProductoService } from '../proxy/productos/producto.service';
 import { ProductoDto } from '../proxy/productos/models';
 
+import { EMPTY, catchError } from 'rxjs';
+
 @Component({
   selector: 'app-my-pantry',
   standalone: true,
@@ -39,20 +41,28 @@ export class MyPantryComponent implements OnInit {
   selectedItem: DespensaItemDto | null = null;
   estados = EstadoItemDespensa;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.buildForm();
 
     const streamCreator = (query: any) =>
-      this.despensaItemService.getList(query);
+      this.despensaItemService
+        .getList(query, { skipHandleError: true })
+        .pipe(
+          catchError((error: any) => {
+            console.error('Error al cargar la despensa:', error);
+
+            this.hasError = true;
+            this.isLoading = false;
+            this.cdr.detectChanges();
+
+            return EMPTY;
+          })
+        );
 
     this.list.hookToQuery(streamCreator).subscribe({
       next: (response) => {
         this.items = response as PagedResultDto<DespensaItemDto>;
-        this.isLoading = false;
-        this.cdr.detectChanges();
-      },
-      error: () => {
-        this.hasError = true;
+        this.hasError = false;
         this.isLoading = false;
         this.cdr.detectChanges();
       },
@@ -62,16 +72,19 @@ export class MyPantryComponent implements OnInit {
     this.loadProductos();
   }
 
-  loadProductos(): void {
+  loadProductos() {
     this.productoService
-      .getList({ maxResultCount: 1000, skipCount: 0 } as any)
+      .getList(
+        { maxResultCount: 1000, skipCount: 0 } as any,
+        { skipHandleError: true }
+      )
       .subscribe({
         next: (res: any) => {
-          console.log('Productos recibidos del servidor:', res.items);
           this.productos = res.items || [];
         },
-        error: (err: any) => {
-          console.error('Error al cargar los productos:', err);
+        error: (error: any) => {
+          console.error('Error al cargar los productos:', error);
+          this.productos = [];
         },
       });
   }

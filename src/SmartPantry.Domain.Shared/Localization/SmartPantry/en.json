@@ -45,6 +45,29 @@
     "Permission:Authors.Delete": "Deleting the authors",
     "Menu:Home": "Home",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
-    "Welcome": "Welcome"
+    "Welcome": "Welcome",
+
+    "Menu:MyPantry": "My Pantry",
+    "Pantry:Empty": "Your pantry is empty.",
+    "Pantry:NotSpecified": "Not specified",
+    "Pantry:NewProduct": "New Product",
+    "Pantry:Quantity": "Quantity",
+    "Pantry:Product": "Product",
+    "Pantry:Unit": "Unit",
+    "Pantry:ExpirationDate": "Expiration Date",
+    "Pantry:Save": "Save",
+    "Pantry:Cancel": "Cancel",
+    "Pantry:SelectProduct": "Select Product",
+    "Pantry:Consume": "Mark as Consumed",
+    "Pantry:Edit": "Edit",
+    "Pantry:Delete": "Delete",
+    "Pantry:ConsumedBadge": "Consumed",
+    "Pantry:Actions": "Actions",
+    "Pantry:QuantityMinError": "Quantity cannot be negative",
+    "Pantry:Loading": "Loading",
+    "Pantry:EditProduct": "Edit Product",
+    "Pantry:ErrorTitle": "Oops!",
+    "Pantry:LoadError": "We couldn't load your pantry data right now. Please check your connection.",
+    "Pantry:Retry": "Retry"
   }
 }

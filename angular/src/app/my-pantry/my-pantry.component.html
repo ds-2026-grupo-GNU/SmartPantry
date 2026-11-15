@@ -8,15 +8,22 @@
   </div>
 
   <div class="card-body">
-    <!-- 1. Estado de Carga -->
+    <!-- 1. Estado de Carga --> 
     <div *ngIf="isLoading" class="text-center p-3">
       <p>{{ '::Pantry:Loading' | abpLocalization }}</p>
     </div>
 
     <!-- 2. Estado de Error -->
-    <div *ngIf="hasError && !isLoading" class="alert alert-danger text-center">
+    <div *ngIf="hasError && !isLoading"
+         class="alert alert-danger text-center"
+         role="alert">
       <p>{{ '::Pantry:LoadError' | abpLocalization }}</p>
-      <button class="btn btn-primary" (click)="loadItems()">{{ '::Pantry:Retry' | abpLocalization }}</button>
+
+      <button type="button"
+              class="btn btn-primary"
+              (click)="loadItems()">
+        {{ '::Pantry:Retry' | abpLocalization }}
+      </button>
     </div>
 
     <!-- 3. Lista Vacía -->
